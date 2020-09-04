@@ -1,7 +1,6 @@
 body{
     overflow-y: hidden;
     text-align: center;
-    background-color: aqua;
     background-image: url("/Images/bg.jpg");
     background-size: cover;
     background-position: top 40% ;
@@ -62,18 +61,29 @@ a:active {
     border-radius: 20px 20px 20px 20px;
 }
 
-.redlight{
+.hsLight{
+    background-color: yellow;
+    animation: blinker 1.5s linear infinite;
+}
+
+.redLight{
     background-color: red;
 }
 
-.yellowlight{
+.yellowLight{
     background-color: yellow;
 }
 
-.greenlight{
+.greenLight{
     background-color: lawngreen;
 }
 
 .off{
     background-color: black;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
 }

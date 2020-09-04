@@ -1,8 +1,19 @@
 <?php
+session_start();
 require_once('Classes\Trafficlight.php');
 
+!isset($_SESSION['state']) ? $_SESSION['state'] = 0 : false;
+
 $lights = new TrafficLight();
-$lights->setState($_GET['state']);
+
+if (isset($_GET['next'])) {
+    $_SESSION['state'] = $lights->changeState($_SESSION['state'], $_GET['next']);
+} else {
+    false;
+}
+
+$lights->setState($_SESSION['state']);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,13 +23,14 @@ $lights->setState($_GET['state']);
 </head>
 
 <body>
-    <div class="square">
-        <div class="circle <?= $lights->red ? 'redlight' : 'off'?>"></div>
-        <div class="circle <?= $lights->yellow ? 'yellowlight' : 'off'?>"></div>
-        <div class="circle <?= $lights->green ? 'greenlight' : 'off'?>"></div>
-        <a href="/?state=<?= isset($_GET['state']) ? ($_GET['state'] + 1) % 4 : 1 ?>">=></a>
-        <div class="post"></div>
-    </div>
+<div class="square">
+    <div class="circle <?= $lights->red ? 'redLight' : 'off' ?>"></div>
+    <div class="circle <?= $lights->hs ? 'hsLight' : ($lights->yellow ? 'yellowLight' : 'off') ?>"></div>
+    <div class="circle <?= $lights->green ? 'greenLight' : 'off' ?>"></div>
+    <a href="/?next=true">=></a>
+    <a href="/?next=false">X</a>
+    <div class="post"></div>
+</div>
 
 </body>
 

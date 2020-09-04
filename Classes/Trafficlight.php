@@ -1,8 +1,9 @@
 <?php
     class TrafficLight{
-        public bool $red;
-        public bool $yellow;
-        public bool $green;
+        public $red;
+        public $yellow;
+        public $green;
+        public $hs;
 
         public function setState($state){
             switch ($state) {
@@ -27,6 +28,27 @@
                     $this->yellow = true;
                     $this->green = false;
                     break;
+                case 4:
+                    $this->red = false;
+                    $this->hs = true;
+                    $this->green = false;
+            }
+        }
+
+        public function changeState($state,$next){
+            switch ($next){
+                default:
+                    return $state;
+                case "true":
+                    $state = ($state==4) ? 0 : ($state+1)%4;
+                    return $state;
+                case "false":
+                    if($state == 0 || $state == 2){
+                        return $state = 4;
+                    }
+                    else{
+                        return $state;
+                    }
             }
         }
 
