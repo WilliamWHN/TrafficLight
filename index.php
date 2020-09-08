@@ -35,3 +35,4 @@ $lights->setState($_SESSION['state']);
 </body>
 
 </html>
+

@@ -5,13 +5,19 @@
         public $green;
         public $hs;
 
-        public function setState($state){
-            switch ($state) {
+        public $hs ;
+        public $red;
+        public $yellow;
+        public $green;
+
+        public function setState(){
+            switch ($_SESSION['state']) {
                 default:
                 case 0:
                     $this->red = true;
                     $this->yellow = false;
                     $this->green = false;
+                    $this->hs = false;
                     break;
                 case 1:
                     $this->red = true;
