@@ -24,3 +24,5 @@ switch ($request[0]) {
 
 $content = ob_get_clean();
 require "views/gabarit.php";
+?>
+
