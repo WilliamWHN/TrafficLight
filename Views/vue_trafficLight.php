@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col col-md-auto">
-            <div class="square" id="square" data-timer="<?=$lights->setTimeout($_SESSION['state'])?>">
+            <div class="square" id="square" data-timer="<?=$lights->getTimeout($_SESSION['state'])?>">
                 <div class="circle <?= $lights->red ? 'redLight' : 'off' ?>"></div>
                 <div class="circle <?= $lights->hs ? 'hsLight' : ($lights->yellow ? 'yellowLight' : 'off') ?>"></div>
                 <div class="circle <?= $lights->green ? 'greenLight' : 'off' ?>"></div>

@@ -52,10 +52,10 @@
             }
         }
 
-        public function setTimeOut($state){
+        public function getTimeOut($state){
             switch ($state){
                 default:
-                    return 100000^10;
+                    return false;
                 case 0:
                     return 10000;
                 case 1:
