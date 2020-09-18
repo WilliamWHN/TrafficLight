@@ -1,5 +1,5 @@
 <?php
-require_once('Classes\Trafficlight.php');
+require_once('Classes/Trafficlight.php');
 
 function index($next){
 

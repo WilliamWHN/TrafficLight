@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require('Controller\controller.php');
+require('Controller/controller.php');
 
 ob_start();
 
