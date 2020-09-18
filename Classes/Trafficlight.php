@@ -52,4 +52,18 @@
             }
         }
 
+        public function setTimeOut($state){
+            switch ($state){
+                default:
+                    return 100000^10;
+                case 0:
+                    return 10000;
+                case 1:
+                case 3:
+                    return 1000;
+                case 2:
+                    return 5000;
+            }
+        }
+
 }
